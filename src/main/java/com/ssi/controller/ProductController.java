@@ -20,14 +20,16 @@ public class ProductController {
 	public ModelAndView searchProduct(@RequestParam("pcode") int code) {
 		//talk to service to get the product-details
 		Product product=productService.productDetails(code);
-		ModelAndView modelAndView=new ModelAndView("details.jsp");
+		//ModelAndView modelAndView=new ModelAndView("/WEB-INF/pages/details.jsp");
+		ModelAndView modelAndView=new ModelAndView("details");
 		modelAndView.addObject("product", product);
 		return modelAndView;
 	}
 	//mapping to show input-page
 	@RequestMapping("searchinput")
 	public String showSearchForm() {
-		return "searchpage.jsp";
+		//return "/WEB-INF/pages/searchpage.jsp";
+		return "searchpage";
 	}
 
 }
